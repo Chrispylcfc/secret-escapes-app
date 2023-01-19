@@ -8,11 +8,12 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import { Home } from './pages/Home';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<><Outlet /></>}>
-      <Route path="/" element={<div>Home Page</div>} />
+      <Route path="/" element={<Home />} />
       <Route path="search" element={<div>Search Results Page</div>} />
       <Route path="sale/:id" element={<div>Sale ID Page</div>} />
     </Route>
