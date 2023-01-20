@@ -1,50 +1,27 @@
-import React, { ChangeEvent, KeyboardEvent, useState } from 'react';
-import { IconButton, InputAdornment, TextField, Typography } from '@mui/material';
-import {Search as SearchIcon} from '@mui/icons-material';
+import React, { useState } from 'react';
+import { Box, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { SearchField } from '../components/SearchField';
 
 export const Home = () => {
   const navigate = useNavigate();
   const [searchText, setSearchText] = useState("");
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchText(event.target.value);
+  const handleChange = (newValue: string) => {
+    setSearchText(newValue);
   }
   
   const handleSearch = () => {
     navigate(`/search?query=${searchText}`);
   }
 
-  const handleKeyPress = (event: KeyboardEvent<HTMLDivElement>) => {
-    if(event.key === 'Enter') {
-      handleSearch();
-    }
-  }
-
   return (
-    <>
+    <Box sx={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
       <Typography variant="h2">
         Secret Escapes App
       </Typography>
 
-      <TextField 
-        id="location-search"
-        label="Location"
-        value={searchText}
-        onChange={handleChange}
-        InputProps={{
-          endAdornment: 
-            <InputAdornment position="end">
-              <IconButton
-                onClick={handleSearch}
-                edge="end"
-              >
-                <SearchIcon />
-              </IconButton>
-            </InputAdornment>,
-        }}
-        onKeyDown={handleKeyPress}
-      />
-    </>
+      <SearchField value={searchText} onChange={handleChange} onSearch={handleSearch} />
+    </Box>
   )
 }
