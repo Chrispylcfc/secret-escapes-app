@@ -9,10 +9,10 @@ type Photo = {
   url: string;
 }
 
-type Sale = {
+export type Sale = {
   id: string;
   editorial: Editorial;
-  photos: Photo
+  photos: Photo[];
 }
 
 type SalesResponse = {

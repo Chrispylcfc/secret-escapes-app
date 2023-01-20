@@ -1,17 +1,23 @@
 import React from 'react';
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
 import { useSalesQuery } from '../hooks/useSalesQuery';
+import { SearchItem } from '../components/SearchItem';
 
 export const SearchResults = () => {
   const [searchParams] = useSearchParams();
+  const query = searchParams.get('query');
 
   const { loading, data } = useSalesQuery({ query: searchParams.get('query')! });
+
+  const handleClick = (saleId: string) => {
+    console.log(saleId);
+  }
 
   return (
     <>
     <Typography variant="h3">
-      Search Results
+      Search Results for {query}
     </Typography>
 
     {loading && (
@@ -19,9 +25,13 @@ export const SearchResults = () => {
     )}
 
     {data && (
-      data.saleSearch.sales.map((sale) => (
-        <Typography key={sale.id} variant="body1">{sale.id}</Typography>
-      ))
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <Typography variant="body2">{data.saleSearch.resultCount} results found</Typography>
+        
+          {data.saleSearch.sales.map((sale) => (
+            <SearchItem key={sale.id} sale={sale} onClick={handleClick} />
+          ))}
+      </Box>
     )}
     </>
   );
