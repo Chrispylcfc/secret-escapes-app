@@ -7,8 +7,7 @@ import { SearchItem } from '../components/SearchItem';
 export const SearchResults = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get('query');
-
-  const { loading, data } = useSalesQuery({ query: searchParams.get('query')! });
+  const { loading, data } = useSalesQuery({ variables: { query: query! } });
 
   const handleClick = (saleId: string) => {
     console.log(saleId);

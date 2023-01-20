@@ -1,4 +1,4 @@
-import { gql, useQuery } from '@apollo/client';
+import { gql, QueryHookOptions, useQuery } from '@apollo/client';
 
 type Editorial = {
   title: string;
@@ -40,6 +40,6 @@ const GetSalesResponse = gql`
   }
 `;
 
-export function useSalesQuery(variables: { query: string }) {
-  return useQuery<SalesResponse>(GetSalesResponse, { variables });
+export function useSalesQuery(options?: QueryHookOptions) {
+  return useQuery<SalesResponse>(GetSalesResponse, options);
 }
