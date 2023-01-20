@@ -1,11 +1,11 @@
 import { gql, QueryHookOptions, useQuery } from '@apollo/client';
 
-type Editorial = {
+export type Editorial = {
   title: string;
   destinationName: string;
 }
 
-type Photo = {
+export type Photo = {
   url: string;
 }
 
@@ -40,6 +40,6 @@ const GetSalesResponse = gql`
   }
 `;
 
-export function useSalesQuery(options?: QueryHookOptions) {
+export function useSalesSearchQuery(options?: QueryHookOptions) {
   return useQuery<SalesResponse>(GetSalesResponse, options);
 }

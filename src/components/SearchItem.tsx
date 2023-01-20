@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
-import { Sale } from '../hooks/useSalesQuery';
+import { Sale } from '../hooks/useSalesSearchQuery';
 
 interface Props {
   sale: Sale;
