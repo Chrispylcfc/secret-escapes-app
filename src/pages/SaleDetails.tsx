@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { SaleDetail } from '../components/SaleDetail';
-import { useSaleQuery } from '../hooks/useSaleQuery';
+import { useSaleQuery } from '../api/hooks/useSaleQuery';
 
 export const SaleDetails = () => {
   const { id } = useParams();

@@ -1,24 +1,10 @@
 import { gql, QueryHookOptions, useQuery } from '@apollo/client';
-
-export type Editorial = {
-  title: string;
-  destinationName: string;
-}
-
-export type Photo = {
-  url: string;
-}
-
-export type Sale = {
-  id: string;
-  editorial: Editorial;
-  photos: Photo[];
-}
+import { ISearchItem } from '../types';
 
 type SalesResponse = {
   saleSearch: {
     resultCount: number;
-    sales: Sale[];
+    sales: ISearchItem[];
   }
 };
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
-import { Sale } from '../hooks/useSaleQuery';
+import { ISaleDetail } from '../api/types';
 
 interface Props {
-  sale: Sale;
+  sale: ISaleDetail;
 }
 
 export const SaleDetail = ({ sale }: Props) => {

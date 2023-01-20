@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { useSalesSearchQuery } from '../hooks/useSalesSearchQuery';
+import { useSalesSearchQuery } from '../api/hooks/useSalesSearchQuery';
 import { SearchItem } from '../components/SearchItem';
 
 export const SearchResults = () => {

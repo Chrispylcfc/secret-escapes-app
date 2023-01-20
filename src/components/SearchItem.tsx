@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
-import { Sale } from '../hooks/useSalesSearchQuery';
+import { ISearchItem } from '../api/types';
 
 interface Props {
-  sale: Sale;
+  sale: ISearchItem;
   onClick: (saleId: string) => void;
 }
 

@@ -1,24 +1,8 @@
 import { gql, QueryHookOptions, useQuery } from '@apollo/client';
-import { Editorial, Photo } from './useSalesSearchQuery';
-
-type EditorialExtended = Editorial & {
-  hotelDetails: string;
-}
-
-type Price = {
-  leadRate: {
-    forDisplay: string;
-  }
-}
-
-export type Sale = {
-  editorial: EditorialExtended;
-  prices: Price;
-  photos: Photo[];
-}
+import { ISaleDetail } from '../types';
 
 type SaleResponse = {
-  sale: Sale;
+  sale: ISaleDetail;
 };
 
 const GetSaleResponse = gql`
