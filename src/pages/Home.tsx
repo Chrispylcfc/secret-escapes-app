@@ -12,7 +12,7 @@ export const Home = () => {
   }
   
   const handleSearch = () => {
-    navigate(`search?query=${searchText}`);
+    navigate(`/search?query=${searchText}`);
   }
 
   const handleKeyPress = (event: KeyboardEvent<HTMLDivElement>) => {

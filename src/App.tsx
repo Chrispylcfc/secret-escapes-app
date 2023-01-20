@@ -7,7 +7,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import { Home, SearchResults } from './pages';
+import { Home, SaleDetails, SearchResults } from './pages';
 
 import './App.css';
 
@@ -21,7 +21,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<><Outlet /></>}>
       <Route path="/" element={<Home />} />
       <Route path="search" element={<SearchResults />} />
-      <Route path="sale/:id" element={<div>Sale ID Page</div>} />
+      <Route path="sale/:id" element={<SaleDetails />} />
     </Route>
   )
 );
